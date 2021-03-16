@@ -17,7 +17,7 @@ class Form extends Component{
 
     submit = () => {
         const {imageUrl, title} = this.state
-        this.props.addPost(imageUrl, title);
+        this.props.addTalkers(imageUrl, title);
         this.setState({
             title: '',
             imageUrl: ''

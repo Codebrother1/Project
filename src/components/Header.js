@@ -1,30 +1,35 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
 import {Link} from 'react-router-dom'
-import {Navbar, Nav, Container} from 'react-bootstrap'
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import {getUser} from '../redux/userReducer';
 
-const Header = (props) => {
-  return (
-    <header>
-      <Navbar bg="light" varient="light" expand="lg" collapseOnSelect>
-        <Container>
-  <Navbar.Brand href="#home">Terrance</Navbar.Brand>
-  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="ml-auto">
-      <div>
-      <Link to="/"><i className="fas fa-user"></i>Login/Signup</Link>
-      <Link to="/main"><i className="fas fa-home"></i>Main</Link>
-      <button onClick={this.logout}>Logout</button>
-      </div>
-    </Nav>
-    
-  </Navbar.Collapse>
-  </Container> 
-</Navbar>
-  </header>
-  )
+class Header extends React.Component {
+
+    componentDidMount(){
+        this.props.getUser();
+    }
+
+    logout = () => {
+        axios.post('/auth/logout');
+    }
+
+    render(){
+    return <div className="header">
+        {this.props.isLoggedIn ? 
+        <div>
+            <h5>Welcome, {this.props.user.username} </h5>
+            <Link to="/">Login/Register</Link>
+            <Link to="/main">Main</Link>
+            <button onClick={this.logout}>Logout</button>
+        </div>
+        :
+        <h1>Login</h1>
+        }
+    </div>
+    }
 }
+
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, {getUser})(Header);
