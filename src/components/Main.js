@@ -6,36 +6,36 @@ class Main extends Component {
     constructor(){
         super();
         this.state = {
-            posts: []
+            talkers: []
         }
     }
 
     componentDidMount(){
-        axios.get('/api/posts').then( res => {
+        axios.get('/api/talkers').then( res => {
             this.setState({
-                posts: res.data
+                talkers: res.data
             })
         }).catch(err => console.log(err))
     }
 
-    addPost = (imageUrl, title) => {
-        axios.post('/api/posts', {imageUrl, title}).then( res => {
+    addTalker = (imageUrl, title) => {
+        axios.post('/api/talkers', {imageUrl, title}).then( res => {
             this.setState({
-                posts: res.data
+                talkers: res.data
             })
         }).catch(err => console.log(err))
     }
 
     render(){
-        const mappedPosts = this.state.posts.map( post => {
+        const mappedTalkers = this.state.talkers.map( talker => {
             return <div>
-                <span>{post.title}</span>
-                <img src={post.img_url}/>
+                <span>{talker.title}</span>
+                <img src={talker.img_url}/>
             </div>
         })
         return <div className="main">
-            <Form addPost={this.addPost}/>
-            {mappedPosts}
+            <Form addTalker={this.addTalker}/>
+            {mappedTalkers}
         </div>
     }
 }

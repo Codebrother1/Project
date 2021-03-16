@@ -15,6 +15,7 @@ const Header = (props) => {
       <div>
       <Link to="/"><i className="fas fa-user"></i>Login/Signup</Link>
       <Link to="/main"><i className="fas fa-home"></i>Main</Link>
+      <button onClick={this.logout}>Logout</button>
       </div>
     </Nav>
     
