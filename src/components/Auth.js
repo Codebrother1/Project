@@ -23,7 +23,7 @@ class Auth extends Component {
             this.props.history.push('/main')
         } 
         catch {
-            alert('failed login attempt')
+            alert('failed attempt')
         }
     }
 
@@ -56,7 +56,7 @@ class Auth extends Component {
         return <div className="auth">
             {!this.state.newUser ?
             <form onSubmit={this.login}>
-                <h2>PlEASE LOGIN</h2>
+                <h2>PLEASE LOGIN</h2>
                 <input 
                 type='text'
                 placeholder='email'
