@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 
-initialState = {
+const initialState = {
   user: {},
   isLoggedIn: false
 }

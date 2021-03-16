@@ -1,8 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {Navbar, Nav, Container} from 'react-bootstrap'
+import {connect} from 'react-redux'
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header>
       <Navbar bg="light" varient="light" expand="lg" collapseOnSelect>
@@ -25,4 +26,4 @@ const Header = () => {
 }
 const mapStateToProps = state => state;
 
-export default Header
+export default connect(mapStateToProps)(Header);
