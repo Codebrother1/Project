@@ -4,7 +4,7 @@ import axios from 'axios'
 
 initialState = {
   user: {},
-  isLoggiedIn: false
+  isLoggedIn: false
 }
 
 
@@ -28,7 +28,7 @@ export function logoutUser(){
 }
 
 export function getUser(){
-  const user = axios('./auth/user').then(res => res.data)
+  const user = axios.get('/auth/user').then(res => res.data)
   return {
     type: GET_USER,
     payload: user
@@ -40,15 +40,15 @@ export function getUser(){
 export default function userReducer(state = initialState, action){
   switch(action.type){
     case LOGIN_USER:
-      return {...state, user: action.payload, isLoggiedIn: true}
+      return {...state, user: action.payload, isLoggedIn: true}
      case LOGOUT_USER:
        return initialState
       case GET_USER + "_PENDING"  :
         return state;
       case GET_USER + "_FUFILLED"  :
-        return {...state, user: action.payload, isLoggiedIn: true};
+        return {...state, user: action.payload, isLoggedIn: true};
       case GET_USER + "_REJECTED"  :
-        retuen initialState
+        return initialState
       default: 
       return state
   }

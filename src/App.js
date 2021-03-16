@@ -1,15 +1,22 @@
+import {Container} from 'react-bootstrap'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import routes from './routes'
-import './App.css';
+
 
 function App() {
   return (
-    <div className="App">
+    <>
     <Header/>
-    {routes}
+    <main className='py-3'>
+      <Container>
+      {routes}
+      </Container>
+    
+    </main>
+    
     <Footer/>
-    </div>
+    </>
   );
 }
 
