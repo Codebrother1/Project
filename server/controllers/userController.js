@@ -36,5 +36,16 @@ module.exports = {
    } else{
      res.status(401).send("wrong login")
    }
+ },
+ logout: (req, res) => {
+   req.session.destroy();
+   res.status(200).send('Logout complete');
+ },
+ getUserSession: (req, res)=> {
+   if(req.session.user){
+     res.status(200).send(req.session.user);
+   } else {
+     res.status(404).send("Login")
+   }
  }
 }

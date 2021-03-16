@@ -36,6 +36,6 @@ massive({
 app.post(`/auth/register`, auth.register);
 app.post(`/auth/login`, auth.login)
 app.post(`/auth/logout`, auth.logout);
-app.get(`/auth/user`, auth.getUser);
+app.get(`/auth/user`, auth.getUserSession);
 
 app.listen(SERVER_PORT, () => console.log(`Server listening on port ${SERVER_PORT}`))
