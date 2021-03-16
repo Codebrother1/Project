@@ -9,7 +9,7 @@ const session = require('express-session')
 const app = express()
 
 const {SESSION_SECRET, SERVER_PORT, CONNECTION_STRING} = process.env
-
+const auth = require('./controllers/userController')
 
 
 app.use(express.json())
@@ -31,6 +31,11 @@ massive({
   app.set('db', db)
   console.log('db is working babeee!');
 })
+
+
+app.post(`/auth/register`, auth.register);
+
+
 
 
 

@@ -5,12 +5,17 @@ CREATE TABLE users(
  password VARCHAR(500) NOT NULL
 )
 
-
-
-
-
--- CREATE TABLE (
---   SERIAL PRIMARY KEY,
---   title VARCHAR(50),
---   user_id INT REFERENCES users(user_id)
--- )
+CREATE TABLE talkers (
+    talk_id SERIAL PRIMARY KEY,
+    img_url TEXT,
+    title VARCHAR(50),
+    tank INT DEFAULT 0
+    user_id INT REFERENCES users(user_id)
+);
+CREATE TABLE talkers (
+    talk_id SERIAL PRIMARY KEY,
+    img_url TEXT,
+    title VARCHAR(50),
+    tank INT DEFAULT 0,
+    user_id INT REFERENCES users(user_id)
+);
