@@ -12,10 +12,10 @@ const Header = (props) => {
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="ml-auto">
-      
+      <div>
       <Link to="/"><i className="fas fa-user"></i>Login/Signup</Link>
       <Link to="/main"><i className="fas fa-home"></i>Main</Link>
-      
+      </div>
     </Nav>
     
   </Navbar.Collapse>
